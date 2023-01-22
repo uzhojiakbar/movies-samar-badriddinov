@@ -5,6 +5,7 @@ import SearchPanel from '../Components/Search-panel'
 import './style.css'
 import { MoviesData } from '../Mock/movies'
 import { useState } from 'react'
+import AddMovies from '../Components/Add-Movies'
 
 const Root = () => {
   const [films, setFilms] = useState(MoviesData)
@@ -14,6 +15,7 @@ const Root = () => {
       <MoviesAbout films={films} />
       <SearchPanel setSearch={setSearch} />
       <Film search={search} films={films} setFilms={setFilms} />
+      <AddMovies films={films} setFilms={setFilms}  />
     </div>
   )
 }

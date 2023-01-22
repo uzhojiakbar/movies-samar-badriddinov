@@ -1,6 +1,5 @@
 import React from 'react'
 import { useState } from 'react'
-import { MoviesData } from '../../Mock/movies'
 import { Container, FilmInfo } from './style'
 
 const Film = ({ films, setFilms, search = '' }) => {
@@ -17,7 +16,7 @@ const Film = ({ films, setFilms, search = '' }) => {
   }
   const onViewsChange = (id, views) => {
       setEdited({ ...edited, views: views })
-      let res = films.filter((movie) => movie?.id == id ? movie.views = views : movie)
+      let res = films.filter((movie) => movie?.id === id ? movie.views = views : movie)
       setFilms(res)
   }
   const onEnter = () => {
@@ -37,11 +36,11 @@ const Film = ({ films, setFilms, search = '' }) => {
                       onMouseLeave={() => onCloseEdit()}
                       className="views">
                       {
-                        edited?.id == id ?
+                        edited?.id === id ?
                           <input
                             min={1}
                             onChange={({ target: { value } }) => onViewsChange(id, value)}
-                            onKeyDown={({ key }) => key == 'Enter' ? onEnter(id) : ''}
+                            onKeyDown={({ key }) => key === 'Enter' ? onEnter(id) : ''}
                             className='count'
                             type="number"
                             defaultValue={views}
